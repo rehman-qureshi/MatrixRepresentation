@@ -30,3 +30,21 @@ Install the required Python package:
 ```bash
 pip install pandas
 ```
+### Usage
+
+1. **Clone this repository** and ensure all the following files are in the same directory:
+    - `matrix-representation.py`
+    - `allow_self_loop.py`
+    - `remove_activity.py`
+    - `remove_direct_relationship.py`
+    - `remove_all_relationships.py`
+    - `direct_to_concurrent_relationship.py`
+    - `exclusive_to_direct_relationship.py`
+    - `exclusive_to_concurrent_relationship.py`
+    - `generate_declarative_constraints.py`
+
+2. **Run the main script:**
+
+    ```bash
+    python matrix-representation.py
+    ```
