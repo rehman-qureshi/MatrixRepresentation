@@ -125,14 +125,23 @@ if __name__ == "__main__":
             print(df)
         elif choice == "10": # Generate Declarative Constraints
             relationSet = set()
+            selfRelationSet = set()
+            # Iterate through the DataFrame to find relations
             for i in df.index:
                 for j in df.columns:
-                    if df.at[i, j] == '→' or df.at[i, j] == '~>' or df.at[i, j] == '||':
+                    if df.at[i, j] == '→' or df.at[i, j] == '~>':
                         relationSet.add((i, j))
+                    elif df.at[i, j] == '||':
+                        relationSet.add((i, j))
+                        if i == j:
+                            print(f"Self loop found: {i} || {j}")
+                            selfRelationSet.add(i)
+                        #else:
+                            
             print("Relation Set generated from the Matrix:")              
             print(relationSet)
             print("Generating Declarative Constraints...")
-            generate_declarative_constraints_function(relationSet)
+            generate_declarative_constraints_function(relationSet,selfRelationSet)
         elif choice == "0":
             print("Exiting.")
             break

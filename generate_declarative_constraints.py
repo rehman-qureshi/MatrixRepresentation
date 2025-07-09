@@ -1,6 +1,6 @@
 import csv
 
-def generate_declarative_constraints_function(relationSet):
+def generate_declarative_constraints_function(relationSet,selfRelationSet):
     #print(f"generate_declarative_constraints_function length of relationSet: ",len(relationSet))
     
     firstElementMatching=set()
@@ -19,18 +19,36 @@ def generate_declarative_constraints_function(relationSet):
     declarativeConstraints=[]
     for value in firstElementMatching:
         formatted_elements = ", ".join(value[1])  # Convert frozenset to a comma-separated string
-        constraint=f"Response({value[0]}, {{{formatted_elements}}})"
+        print(" ",value[0], " ", formatted_elements)
+        if value[0] in selfRelationSet:
+            constraint=f"Response({value[0]}, {{{formatted_elements}}})"
+        else:
+            # If the first element is not a self-loop, use AlternateResponse
+            # This assumes that self-loops are handled separately
+            constraint=f"AlternateResponse({value[0]}, {{{formatted_elements}}})"
         declarativeConstraints.append(constraint)
     #print("secondElementMatching: ",len(secondElementMatching))
     for value in secondElementMatching:
         formatted_elements = ", ".join(value[0])  # Convert frozenset to a comma-separated string
-        constraint=f"Response({{{formatted_elements}}},{value[1]})"
+        if value[1] in selfRelationSet:
+            constraint=f"Response({{{formatted_elements}}}, {value[1]})"
+        else:
+            # If the second element is not a self-loop, use AlternateResponse
+            # This assumes that self-loops are handled separately
+            constraint=f"AlternateResponse({{{formatted_elements}}},{value[1]})"
         declarativeConstraints.append(constraint)
     #print("soloTuple: ",len(soloTuple))
     for value in soloTuple:
-        constraint=f"Response({value})"
+        if (value[0] or value[1]) in selfRelationSet:
+            constraint=f"Response({value[0]},{value[1]})"
+        else:
+            # If the tuple is not a self-loop, use AlternateResponse
+            # This assumes that self-loops are handled separately
+            constraint=f"AlternateResponse({value[0]},{value[1]})"
         declarativeConstraints.append(constraint)
-    
+    print("Declarative Constraints generated:")
+    for constraint in declarativeConstraints:
+        print(constraint)
     # Save declarativeConstraints to a CSV file
     with open("output\\declarative-constraints.csv", mode="w", newline="") as file:
         writer = csv.writer(file)

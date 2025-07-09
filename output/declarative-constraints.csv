@@ -1,4 +1,8 @@
 Declarative Constraints
-"Response(KPR, {CPO, RR})"
-"Response(('CPR', 'KPR'))"
-"Response(('CPO', 'CO'))"
+"AlternateResponse(KPR, {CPO, RR})"
+"Response(PQC, {PQC, RI})"
+"Response(CPO, {RG, CPO})"
+"Response(SP, {CO, RI, SP})"
+"Response({RG, PQC}, PQC)"
+"Response({RI, SP}, SP)"
+"AlternateResponse(CPR, KPR)"
