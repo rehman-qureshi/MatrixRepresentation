@@ -19,7 +19,7 @@ def generate_declarative_constraints_function(relationSet,selfRelationSet):
     declarativeConstraints=[]
     for value in firstElementMatching:
         formatted_elements = ", ".join(value[1])  # Convert frozenset to a comma-separated string
-        print(" ",value[0], " ", formatted_elements)
+        #print(" ",value[0], " ", formatted_elements)
         if value[0] in selfRelationSet:
             constraint=f"Response({value[0]}, {{{formatted_elements}}})"
         else:
