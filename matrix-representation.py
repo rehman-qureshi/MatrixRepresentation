@@ -24,7 +24,7 @@ if __name__ == "__main__":
     ['E', '-', '-', '-', '-', '←', '-']]"""
 
     # An exemplary BPMN process model of a procurement process: matrix representation of activities  
-    matrix=[['', 'CPR','KPR','CPO','RG','PQC','RI','SP','CO','RR'],
+    """matrix=[['', 'CPR','KPR','CPO','RG','PQC','RI','SP','CO','RR'],
             ['CPR', '-', '→', '-', '-', '-', '-', '-', '-', '-'],
             ['KPR', '←', '-', '→', '-', '-', '-', '-', '-', '→'],
             ['CPO', '-', '←', '-', '→', '-', '-', '-', '-', '-'],
@@ -33,7 +33,7 @@ if __name__ == "__main__":
             ['RI', '-', '-', '-', '-','←', '-', '→', '-', '-'],
             ['SP','-','-','-','-','-', '←', '-', '→', '-'],
             ['CO','-','-','-','-','-', '-', '←', '-', '-'],
-            ['RR','-','←','-','-','-', '-', '-', '-', '-']]
+            ['RR','-','←','-','-','-', '-', '-', '-', '-']]"""
     # BPIC 2019 based process model: -3-way Match, Invoice before Goods Receipt - Standard and Framework Orders". Figure 5 for the visualization of the model [1].
     # 1. Diba, K., Remy, S., & Pufahl, L. (2019, June). Compliance and performance analysis of procurement processes using process mining. In International conference on process mining. 
     # Create Purchase Requisition Item (CPRI)
@@ -47,17 +47,17 @@ if __name__ == "__main__":
     # Remove Payment Block (RPB)
     # Clear Invoice (CI)
     
-    """matrix=[['','CPRI','CPOI','ROC','CP','CQ','RGR','RIR','VCI','RPB','CI'],
+    matrix=[['','CPRI','CPOI','ROC','CP','CQ','RGR','RIR','VCI','RPB','CI'],
             ['CPRI', '-', '→', '-', '-', '-', '-', '-', '-', '-', '-'],
             ['CPOI', '←', '-', '→', '→', '→', '→', '→', '→', '-', '-'],
             ['ROC', '-', '←', '-', '-', '→', '→', '→', '→', '-', '-'],
             ['CP', '-', '←', '-', '-', '→', '→', '→', '→', '-', '-'],
             ['CQ', '-', '←', '←', '←', '-', '→', '→', '||', '-', '-'],
             ['RGR', '-', '←', '←', '←', '←', '-', '||', '||', '→', '→'],
-            ['RIR', '-', '←', '←', '←', '←', '-', '-', '||', '→', '→'],
+            ['RIR', '-', '←', '←', '←', '←', '||', '-', '||', '→', '→'],
             ['VCI', '-', '←', '←', '←', '||', '||', '||', '-', '→', '→'],
             ['RPB', '-', '-', '-', '-', '-', '←', '←', '←', '-', '→'],
-            ['CI', '-', '-', '-', '-', '-','←', '←', '←', '←','-']]"""
+            ['CI', '-', '-', '-', '-', '-','←', '←', '←', '←','-']]
     print("\nMatrix Representation:")
     df = pd.DataFrame(matrix[1:], columns=matrix[0])
     # Set first column as index
