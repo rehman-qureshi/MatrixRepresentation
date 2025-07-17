@@ -5,19 +5,18 @@ This repository provides a Python command-line tool for interactively manipulati
 
 ## Features
 
-- **Matrix generation from PNML:** Automatically generate the activity matrix from a PNML file ([`create_alpha_relations_matrix.py`](create_alpha_relations_matrix.py)).
+- **Matrix generation from PNML:** Automatically generate the activity matrix from a PNML file.
 - **Allow self-loop:** Add a self-loop (`||`) to a specified activity.
 - **Remove activity:** Remove an activity (row and column) from the matrix.
 - **Remove direct relationship:** Remove a direct relationship (`→`) between two activities.
 - **Remove all relationships:** Remove all relationships/activities between two specified activities.
 - **Direct to concurrent relationship:** Change a direct (`→`) relationship to concurrent (`||`).
-- **Exclusive to direct relationship:** Change an exclusive (`-`) relationship to direct (`→`).
-- **Exclusive to concurrent relationship:** Change an exclusive (`-`) relationship to concurrent (`||`).
-- **Add true exclusion relationships:** Add true exclusion relationships to the matrix ([`add_true_exclusion_relationships_function`](add_true_exclusion_relationships.py)).
+- **Add true exclusion relationships:** Add true exclusion relationships to the matrix (`#`).
 - **Show Matrix:** Display the current state of the matrix.
 - **Reset to Original Matrix:** Restore the matrix to its original state.
 - **Generate Declarative Constraints:** Generate and export declarative constraints from the current matrix.
-- **Visualize PNML Model:** Visualize the process model from a PNML file ([`visualize_pnml_model.py`](visualize_pnml_model.py)).
+- **Visualize PNML Model:** Visualize the process model from a PNML file.
+- **Exclusive to direct relationship:** Change an exclusive (`#`) relationship to direct (`→`).
 - **Exit:** Quit the program.
 
 ## Getting Started
