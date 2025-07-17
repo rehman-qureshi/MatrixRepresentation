@@ -1,8 +1,8 @@
 Declarative Constraints
 "Response(RG, {PQC})"
-"Response(RI, {SP})"
-"Response(CPO, {RG})"
-"Response(PQC, {RI, RR})"
+"Response(KPR, {RR, CPO})"
 "Response(CPR, {KPR})"
+"Response(PQC, {RI})"
+"Response(RI, {SP})"
 "Response(SP, {CO})"
-"Response(KPR, {CPO, RR})"
+"Response(CPO, {RG})"
