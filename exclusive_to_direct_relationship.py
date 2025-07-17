@@ -2,7 +2,7 @@ def exclusive_to_direct_relationship_function(df, from_activity, to_activity):
     
     if from_activity in df.columns and to_activity in df.index:
                 if to_activity != from_activity:
-                    if df.at[from_activity, to_activity] == '-':
+                    if df.at[from_activity, to_activity] == '#':
                         df.at[from_activity, to_activity] = '→'
                         print(f"Changed relationship from {from_activity} - {to_activity} to {from_activity} → {to_activity}\n")
                         # Also change the reverse relationship
